@@ -6,11 +6,18 @@ android {
     namespace 'com.eren'
     compileSdk 34
     defaultConfig {
-        applicationId "com.eren"
+        applicationId "com.hava.durum"
         minSdk 21
         targetSdk 34
         versionCode 1
         versionName "1.0"
+    }
+    buildTypes {
+        debug {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17

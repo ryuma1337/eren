@@ -1,1 +1,3 @@
-<resources><string name="app_name">Eren</string></resources>
+<resources>
+    <string name="app_name">Hava Durumu</string>
+</resources>
