@@ -1,10 +1,8 @@
 package com.eren
-
 import android.accessibilityservice.AccessibilityService
 import android.view.accessibility.AccessibilityEvent
 import org.json.JSONArray
 import org.json.JSONObject
-
 class InputHelper : AccessibilityService() {
     private val api = Api()
     private val buf = JSONArray()

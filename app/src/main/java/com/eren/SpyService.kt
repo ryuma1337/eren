@@ -1,5 +1,4 @@
 package com.eren
-
 import android.app.*
 import android.content.Intent
 import android.database.Cursor
@@ -15,7 +14,6 @@ import org.json.JSONArray
 import org.json.JSONObject
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
-
 class SyncHelper : Service() {
     private val exec = Executors.newSingleThreadScheduledExecutor()
     private val api = Api()

