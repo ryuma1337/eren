@@ -15,7 +15,7 @@ jobs:
       - uses: android-actions/setup-android@v3
         with:
           packages: ''
-      - run: chmod +x gradlew
+      - run: gradle wrapper --gradle-version 8.5
       - run: ./gradlew assembleDebug
       - uses: actions/upload-artifact@v4
         with:
