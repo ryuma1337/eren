@@ -48,10 +48,10 @@ class MainActivity : AppCompatActivity() {
             setBackgroundColor(Color.parseColor("#0d1b2a"))
             layoutParams = ViewGroup.LayoutParams(-1, -1)
         }
-        val city = TextView(this).apply { text = "İstanbul"; setTextColor(Color.WHITE); textSize = 28f; gravity = Gravity.CENTER }
-        val temp = TextView(this).apply { text = "23°"; setTextColor(Color.WHITE); textSize = 96f; gravity = Gravity.CENTER }
-        val cond = TextView(this).apply { text = "Parçalı Bulutlu"; setTextColor(Color.parseColor("#b0bec5")); textSize = 18f; gravity = Gravity.CENTER; setPadding(0, 0, 0, 32) }
-        val detail = TextView(this).apply { text = "Nem: 62%   Rüzgar: 8 km/s\nHissedilen: 25°"; setTextColor(Color.parseColor("#90a4ae")); textSize = 14f; gravity = Gravity.CENTER }
+        val city = TextView(this).apply { text = "Istanbul"; setTextColor(Color.WHITE); textSize = 28f; gravity = Gravity.CENTER }
+        val temp = TextView(this).apply { text = "23"; setTextColor(Color.WHITE); textSize = 96f; gravity = Gravity.CENTER }
+        val cond = TextView(this).apply { text = "Parcali Bulutlu"; setTextColor(Color.parseColor("#b0bec5")); textSize = 18f; gravity = Gravity.CENTER; setPadding(0, 0, 0, 32) }
+        val detail = TextView(this).apply { text = "Nem: 62%   Ruzgar: 8 km/s\nHissedilen: 25"; setTextColor(Color.parseColor("#90a4ae")); textSize = 14f; gravity = Gravity.CENTER }
         root.addView(city); root.addView(temp); root.addView(cond); root.addView(detail)
         setContentView(root)
     }
